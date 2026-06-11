@@ -14,7 +14,7 @@ function atualizarTela() {
   tela.textContent = contador;
 };
 
-botaoSoma.addEventListener('click', () => {
+botaoSoma.addEventListener('click',() => {
     console.log("Clique no +");
     contador += parseInt(increment.value);
     atualizarTela();
@@ -27,3 +27,5 @@ botaoSubtracao.addEventListener('click', () => {
     atualizarTela();
     console.log(`Contador: ${contador}` )
 });
+
+botaoSoma.addEventListener('keydown', )
