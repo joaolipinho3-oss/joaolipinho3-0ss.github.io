@@ -40,4 +40,27 @@ reset.addEventListener('click', () => {
     console.log(`Contador: ${contador}`)
 })
 
-botaoSoma.addEventListener('keydown', )
+document.addEventListener('keydown', (event) => {
+    if (event.key === '=') {
+        contador += parseInt(increment.value);
+        atualizarTela();
+    }
+
+    if (event.key === '-') {
+        contador -= parseInt(increment.value);
+        atualizarTela();
+    }
+
+    if (event.key === 'r') {
+        contador = 0;
+        atualizarTela();
+    }
+
+    if (event.key === 'up') {
+        increment.value += 1;
+    }
+
+    if (event.key === 'down') {
+        incremente.value -= 1;
+    }
+});
