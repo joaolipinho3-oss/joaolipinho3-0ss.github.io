@@ -7,7 +7,7 @@
 /* LAYOUT GERAL ABRE*/
 
 body {
-    background-image: white ;
+    background-image: radial-gradient(circle, rgb(230, 243, 170) 10%, rgb(232, 255, 177) 30%, rgb(190, 190, 252) 80%);
     color: rgb(0, 0, 0);
     font-family: Arial, sans-serif;
 }
@@ -78,7 +78,6 @@ button:hover {
 
 #copyright {
     font-size: 14px;
-    margin-top: 9cm;
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -11,10 +11,6 @@ console.log(tela);
 console.log(reset)
 
 let contador = 0;
-if (contador < 0) {
-    alert('O número mínimo foi atingido 0')
-    contador = 0
-}
 
 function atualizarTela() {
   tela.textContent = contador;
