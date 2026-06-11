@@ -54,7 +54,15 @@ button:hover {
     box-shadow: 0 10px 15px rgb(61, 61, 61);
     transition-duration: 0.3s;    
 }
+#reset-button {
+    font-size: 24px;
+    width: 120px;
+    padding: 10px;
+    border-radius: 16px;
+    color: antiquewhite;
+    background-color: rgb(72, 106, 255);
 
+}
 #changeBy {
     cursor: pointer;
     box-shadow: 0 2px 5px rgb(61, 61, 61);
