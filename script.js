@@ -1,6 +1,6 @@
 const botaoSoma = document.getElementById('soma'); // Botão de +
 const botaoSubtracao = document.getElementById('subtracao'); // Botão de menos
-const increment = document.getElementById('changeBy'); // Mudar incremento
+const increment = document.getElementById('changeBy').value; // Mudar incremento
 const tela = document.getElementById('display-counter');
 const reset = document.getElementById('reset-button');
 
@@ -15,7 +15,7 @@ let contador = 0;
 function atualizarTela() {
   tela.textContent = contador;
 };
-
+function 
 botaoSoma.addEventListener('click',() => {
     console.log("Clique no +");
     contador += parseInt(increment.value);
@@ -45,11 +45,13 @@ document.addEventListener('keydown', (event) => {
     if (event.key === '-') {
         contador -= parseInt(increment.value);
         atualizarTela();
+        console.log(`Contador: ${contador}`)
     }
 
     if (event.key === 'r') {
         contador = 0;
         atualizarTela();
+        console.log(`Contador: ${contador}`)
     }
 
     if (event.key === 'up') {
