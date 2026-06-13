@@ -11,33 +11,49 @@ console.log(tela);
 console.log(reset)
 
 let contador = 0;
+let minIncrement = 0;
+let maxIncrement = 10
 
-function atualizarTela() {
+function atualizarTela() { //Atualiza o display-counter e substitui o valor pelo número do contador.
   tela.textContent = contador;
 };
 
-botaoSoma.addEventListener('click',() => {
+function contadorMinMax() { // Mínimo do contador
+    if (increment.value > minIncrement) {
+        increment.value = minIncrement;
+        alert("Desculpe o valor mínimo do incremento é 1 :(")
+        }
+    else {
+        increment.value = parseInt(increment.value) - 1;
+        }
+}
+
+botaoSoma.addEventListener('click',() => { //Evento de clique para aumentar o contador.
     console.log("Clique no +");
     contador += parseInt(increment.value);
     atualizarTela();
     console.log(`Contador: ${contador}`)
 });
 
-botaoSubtracao.addEventListener('click', () => {
+botaoSubtracao.addEventListener('click', () => { //Evento de clique para diminuir o contador.
     console.log("Clique no -");
     contador -= parseInt(increment.value);
     atualizarTela();
     console.log(`Contador: ${contador}`)
 });
-reset.addEventListener('click', () => {
+
+reset.addEventListener('click', () => { // Lógica do botão de reiniciar
     console.log("Reset pressionado")
     contador = 0
     atualizarTela()
     console.log(`Contador: ${contador}`)
 })
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => { // Logica dos atalhos de teclado
     if (event.key === '=' || event.key === ' ') {
+        if (increment.value > maxIncrement) {
+        
+        }
         contador += parseInt(increment.value);
         atualizarTela();
     }
@@ -53,9 +69,15 @@ document.addEventListener('keydown', (event) => {
     }
 
     if (event.key === 'ArrowUp') {
-        increment.value += 1;
+        if (increment.value > maxIncrement) {
+            increment.value = maxIncrement;
+            alert("Desculpe o valor máximo do incremento é 10 :(")
+        }
+        else {
+            increment.value = parseInt(increment.value) + 1;
+        }
     }
     if (event.key === 'ArrowDown') {
-        increment.value -= 1;
+        contadorMinMax()
     }
 });
