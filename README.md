@@ -59,7 +59,7 @@ cd simple-counter
 Adicione aqui uma captura de tela do projeto:
 
 ```
-images/preview.png
+<img width="1920" height="1080" alt="preview" src="https://github.com/user-attachments/assets/839c70f5-8bc1-4d69-a8b0-b962d7a09560" />
 ```
 
 ## 📚 Objetivo
