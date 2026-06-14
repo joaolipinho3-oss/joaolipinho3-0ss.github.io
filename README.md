@@ -50,6 +50,7 @@ cd simple-counter
 | ArrowUp | Incrementa o contador |
 | ArrowDown | Decrementa o contador |
 | R | Reinicia o contador |
+| Spacebar | Adiciona o valor do incremento (Apenas desktop) |
 
 > Os atalhos podem variar de acordo com a implementação atual do projeto.
 
