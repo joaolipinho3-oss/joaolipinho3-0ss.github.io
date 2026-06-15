@@ -8,24 +8,26 @@ console.log(botaoSoma);
 console.log(botaoSubtracao);
 console.log(increment);
 console.log(tela);
-console.log(reset)
+console.log(reset);
 
 let contador = 0;
 let minIncrement = 1;
 let maxIncrement = 10
+let backupContador = []
 
 function atualizarTela() { //Atualiza o display-counter e substitui o valor pelo número do contador.
     tela.textContent = contador;
+    backupContador.append(contador.value)
 };
-function displayValidacao(display) {
-    tela = display
-    try {
-        atualizarTela()
+function obterIncremento() {
+    const valor = Number(increment.value);
+
+    if (isNaN(valor) || !Number.isInteger(valor)) {
+        alert("Digite apenas números inteiros.");
+        increment.value = 1;
+        return null;
     }
-    catch (NaN) {
-        alert("Ocorreu um erro inesperado! Verifique se o incremento é maior que 1 e não há casas decimais.")
-        tela 
-    }
+    return valor;
 }
 function contadorMinMax() { // Mínimo e máximo do incremento
     if (increment.value < minIncrement) {
@@ -39,6 +41,7 @@ function contadorMinMax() { // Mínimo e máximo do incremento
     }
 
 botaoSoma.addEventListener('click',() => { //Evento de clique para aumentar o contador.
+    obterIncremento()
     console.log("Clique no +");
     contador += parseInt(increment.value);
     atualizarTela();
@@ -46,6 +49,7 @@ botaoSoma.addEventListener('click',() => { //Evento de clique para aumentar o co
 });
 
 botaoSubtracao.addEventListener('click', () => { //Evento de clique para diminuir o contador.
+    obterIncremento()
     console.log("Clique no -");
     contador -= parseInt(increment.value);
     atualizarTela();
@@ -53,6 +57,7 @@ botaoSubtracao.addEventListener('click', () => { //Evento de clique para diminui
 });
 
 reset.addEventListener('click', () => { // Lógica do botão de reiniciar
+    obterIncremento()
     console.log("Reset pressionado")
     contador = 0
     atualizarTela()
@@ -61,6 +66,7 @@ reset.addEventListener('click', () => { // Lógica do botão de reiniciar
 
 document.addEventListener('keydown', (event) => { // Logica dos atalhos de teclado
     if (event.key === '=' || event.key === ' ') {
+        obterIncremento()
         contador += parseInt(increment.value);
         console.log("Tecla pressionada +");
         console.log(`Contador: ${contador}`);
@@ -68,6 +74,7 @@ document.addEventListener('keydown', (event) => { // Logica dos atalhos de tecla
     }
 
     if (event.key === '-') { 
+        obterIncremento()
         contador -= parseInt(increment.value);
         console.log("Tecla pressionada +");
         console.log(`Contador: ${contador}`);
@@ -82,13 +89,21 @@ document.addEventListener('keydown', (event) => { // Logica dos atalhos de tecla
     }
 
     if (event.key === 'ArrowUp') {
+        obterIncremento()
         increment.value = parseInt(increment.value) + 1;
         contadorMinMax()
         console.log("Incremento + 1")
     }
     if (event.key === 'ArrowDown') {
+        obterIncremento()
         increment.value = parseInt(increment.value) - 1
         contadorMinMax()
         console.log("Incremento - 1")
+    }
+});
+
+increment.addEventListener('keydown', (event) => {
+    if (event.key === '.' || event.key === ',' || event.key === 'e') {
+        event.preventDefault();
     }
 });
