@@ -29,7 +29,7 @@ function obterIncremento() {
     }
     return valor;
 }
-function contadorMinMax() { // Mínimo e máximo do incremento
+function contadorMinMax() { // Mínimo e máximo do incremento, evita o increwmento ser igual a 0 ao usar os atalhos.
     if (increment.value < minIncrement) {
         increment.value = minIncrement;
         alert("Desculpe o valor mínimo do incremento é 1 :(")
@@ -108,7 +108,7 @@ increment.addEventListener('keydown', (event) => { //Evita que o usuário digite
     }
 });
 
-increment.addEventListener('blur', () => {
+increment.addEventListener('blur', () => { //Evita que o incremento seja igual a 'vazio'
     if (increment.value.trim() === '') {
         increment.value = 1;
     }
